@@ -85,6 +85,6 @@ OUT lead_source text)
      LANGUAGE 'sql' VOLATILE;
 
 
-CREATE TABLE pet (id SERIAL PRIMARY KEY, name varchar(50), status varchar(10);
+CREATE TABLE pet (id SERIAL PRIMARY KEY, name varchar(50), status varchar(10));
 
 EOF
