@@ -1,5 +1,5 @@
 
-psql -U $POSTGRESQL_USER $POSTGRESQL_DATABASE <<EOF
+psql -U $POSTGRESQL_USER $POSTGRESQL_DATABASE <<'EOF'
 
 CREATE TABLE CUSTOMER
 (
@@ -59,18 +59,9 @@ INSERT INTO winelist (id, wine, price,year, gws, ci, nbj) VALUES (71,'Sloan, Pro
 INSERT INTO winelist (id, wine, price,year, gws, ci, nbj) VALUES (93,'Spottswoode, Family Estate Grown Cabernet Sauvignon, St Helena',149,2013,9726,'A',9) ON CONFLICT (id) DO NOTHING;
 INSERT INTO winelist (id, wine, price,year, gws, ci, nbj) VALUES (66,'Verite, Le Desir, Sonoma County',269,2007,9753,'A',3) ON CONFLICT (id) DO NOTHING;
 INSERT INTO winelist (id, wine, price,year, gws, ci, nbj) VALUES (100,'Continuum, Proprietary Red, Oakville',185,2007,9716,'A+',3) ON CONFLICT (id) DO NOTHING;
-CREATE OR REPLACE FUNCTION add_lead(
-first_and_last_name varchar,
-company varchar,
-phone varchar,
-email varchar,
-lead_source varchar,
-lead_status varchar,
-rating varchar)
-
+CREATE OR REPLACE FUNCTION add_lead( first_and_last_name varchar, company varchar, phone varchar, email varchar, lead_source varchar, lead_status varchar, rating varchar)
 RETURNS void
 LANGUAGE 'plpgsql'
-
 AS $BODY$
 DECLARE
 task varchar;
